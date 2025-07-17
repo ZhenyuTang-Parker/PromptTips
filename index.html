@@ -117,20 +117,59 @@
             <h3 class="text-3xl font-bold text-center mb-10">Core Strategic Applications & Prompts</h3>
             <div class="mb-4 border-b border-gray-200">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" role="tablist">
-                    <li class="mr-2" role="presentation"><button class="tab-btn inline-block p-4 border-b-2 rounded-t-lg active" id="workshop-tab" type="button" role="tab" aria-controls="workshop" aria-selected="true">Workshop Design</button></li>
-                    <li class="mr-2" role="presentation"><button class="tab-btn inline-block p-4 border-b-2 rounded-t-lg" id="starter-pack-tab" type="button" role="tab" aria-controls="starter-pack" aria-selected="false">Career Starter Packs</button></li>
+                    <li class="mr-2" role="presentation"><button class="tab-btn inline-block p-4 border-b-2 rounded-t-lg active" id="research-tab" type="button" role="tab" aria-controls="research" aria-selected="true">Exploring Unknown Topics</button></li>
+                    <li class="mr-2" role="presentation"><button class="tab-btn inline-block p-4 border-b-2 rounded-t-lg" id="workshop-tab" type="button" role="tab" aria-controls="workshop" aria-selected="false">Workshop Design</button></li>
                     <li class="mr-2" role="presentation"><button class="tab-btn inline-block p-4 border-b-2 rounded-t-lg" id="admin-tab" type="button" role="tab" aria-controls="admin" aria-selected="false">Internal Admin</button></li>
-                    <li class="mr-2" role="presentation"><button class="tab-btn inline-block p-4 border-b-2 rounded-t-lg" id="research-tab" type="button" role="tab" aria-controls="research" aria-selected="false">Topic Exploration</button></li>
                     <li class="mr-2" role="presentation"><button class="tab-btn inline-block p-4 border-b-2 rounded-t-lg" id="tech-help-tab" type="button" role="tab" aria-controls="tech-help" aria-selected="false">Tech & Software Help</button></li>
                 </ul>
             </div>
             <div id="tabContent">
-                <div class="tab-content p-4 bg-white rounded-lg shadow active" id="workshop" role="tabpanel" aria-labelledby="workshop-tab">
+                <div class="tab-content p-4 bg-white rounded-lg shadow active" id="research" role="tabpanel" aria-labelledby="research-tab">
+                    <h4 class="text-2xl font-semibold mb-4">Exploring Unknown Topics (with Anti-Hallucination Measures)</h4>
+                    <div class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                        <p class="font-semibold">The Situation:</p>
+                        <p class="text-slate-700">A student from a niche field (e.g., 'Bio-Integrated Design') asks about career paths in a sector you've never heard of. You need to get up to speed quickly and reliably, without getting false information from the AI.</p>
+                    </div>
+                    <div class="mb-6 p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                        <p class="font-semibold">The Strategy:</p>
+                        <p class="text-slate-700">Do not ask the AI for direct facts. Instead, instruct it to act as a research assistant and create a verifiable research plan for you. This forces the AI to outline a process rather than state potentially fabricated facts, giving you a safe and structured starting point.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Gold-Standard Prompt (Complex Version)</h5>
+                            <pre><code><strong class="text-green-600">(R)</strong> You are a methodical research analyst with expertise in identifying reliable sources.
+<strong class="text-blue-600">(C)</strong> I need to quickly understand a niche industry I know nothing about: 'The UK market for cultivated meat'.
+<strong class="text-indigo-600">(A)</strong> Your task is to create a research plan for me. IMPORTANT: Do NOT provide direct facts or statistics about the industry from your own knowledge.
+<strong class="text-purple-600">(F)</strong> Instead, your output must provide the following three things:
+1. Key Research Questions: List the 5-7 most important questions I would need to answer to get a comprehensive overview of this topic.
+2. Effective Search Queries: For each question, suggest 2-3 specific, effective search queries I could use in Google, Google Scholar, or LinkedIn to find answers.
+3. Reliable Source Checklist: List the types of sources I should prioritise (e.g., reports from the Food Standards Agency, articles in specific scientific journals, publications from industry associations like the Good Food Institute) and the types of sources I should treat with caution (e.g., anonymous blog posts, un-cited opinion pieces).</code></pre>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-2">Simple Version</h5>
+                            <pre><code>I need to research a new topic: '[Your Topic Here]'.
+
+Please act as a research assistant. Don't give me facts directly.
+Instead, create a simple research plan for me. I need:
+1. Three key questions to ask.
+2. Three good Google search terms to find the answers.
+3. Three types of reliable sources to look for.</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content p-4 bg-white rounded-lg shadow" id="workshop" role="tabpanel" aria-labelledby="workshop-tab">
                     <h4 class="text-2xl font-semibold mb-4">Workshop & Presentation Design</h4>
-                    <div class="grid md:grid-cols-2 gap-6">
+                    <div class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                        <p class="font-semibold">The Situation:</p>
+                        <p class="text-slate-700">You need to create a workshop on a specific topic. You might be starting from a blank page or already have a structure in mind.</p>
+                    </div>
+                    <div class="mb-6 p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                        <p class="font-semibold">The Strategy:</p>
+                        <p class="text-slate-700">Use AI as an instructional designer. Ask it to propose a logical flow and key learning objectives (The Architect). Or, if you have a structure, provide it to the AI and instruct it to generate the specific content for each section (The Builder).</p>
+                    </div>
+                    <div class="space-y-6">
                         <div>
                             <h5 class="font-bold text-lg mb-2">Prompt Type A: The Architect</h5>
-                            <p class="text-sm text-slate-600 mb-3">Use this when you have a topic but need a structure.</p>
                             <pre><code><strong class="text-green-600">(R)</strong> You are an expert career educator...
 <strong class="text-blue-600">(C)</strong> design a 60-minute workshop on 'Effective Networking for Beginners in the UK'...
 <strong class="text-indigo-600">(A)</strong> propose a complete workshop structure and a detailed outline...
@@ -139,7 +178,6 @@
                         </div>
                         <div>
                             <h5 class="font-bold text-lg mb-2">Prompt Type B: The Builder</h5>
-                            <p class="text-sm text-slate-600 mb-3">Use this when you have a structure and need content.</p>
                              <pre><code><strong class="text-green-600">(R)</strong> You are an expert digital branding strategist...
 <strong class="text-blue-600">(C)</strong> preparing a 45-minute workshop for final-year Arts & Humanities students...
 <strong class="text-indigo-600">(A)</strong> Generate the content for a slide deck based on the specific structure below...
@@ -148,33 +186,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-content p-4 bg-white rounded-lg shadow" id="starter-pack" role="tabpanel" aria-labelledby="starter-pack-tab">
-                    <h4 class="text-2xl font-semibold mb-4">Instant "Career Starter Packs”</h4>
-                    <p class="text-sm text-slate-600 mb-3">For quick 1-to-1 appointment preparation.</p>
-                    <pre><code><strong class="text-green-600">(R)</strong> You are a specialist recruiter in the UK's renewable energy sector.
-<strong class="text-blue-600">(C)</strong> I am about to meet a student graduating from an MSc in Sustainable Energy.
-<strong class="text-indigo-600">(A)</strong> Quickly generate a "Career Starter Pack" for me.
-<strong class="text-purple-600">(F)</strong> The output must be in clean bullet points and include: 5 Key Job Titles, 3 Niche UK Job Boards, 2 Examples of UK Companies hiring.</code></pre>
-                </div>
                 <div class="tab-content p-4 bg-white rounded-lg shadow" id="admin" role="tabpanel" aria-labelledby="admin-tab">
                      <h4 class="text-2xl font-semibold mb-4">Streamlining Internal Admin (Meeting Notes)</h4>
-                     <p class="text-sm text-slate-600 mb-3">Turn messy notes into a clear summary.</p>
+                     <div class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                        <p class="font-semibold">The Situation:</p>
+                        <p class="text-slate-700">You have raw, messy notes from a meeting and need to turn them into a clear, actionable summary for your team.</p>
+                    </div>
+                    <div class="mb-6 p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                        <p class="font-semibold">The Strategy:</p>
+                        <p class="text-slate-700">Instruct the AI to act as a highly efficient executive assistant. Provide the raw text and specify the exact format for the output, such as an email with sections for decisions and action items.</p>
+                    </div>
                     <pre><code><strong class="text-green-600">(R)</strong> You are a highly efficient executive assistant.
 <strong class="text-indigo-600">(A)</strong> Please convert my raw meeting notes below into a professional summary email.
 <strong class="text-blue-600">(C)</strong> Raw Notes: "- careers fair next month, john says venue tbc..."
 <strong class="text-purple-600">(F)</strong> The email should have a clear subject line and be structured with three sections: 'Key Decisions', 'Action Items (with owner)', and 'For Follow-Up'.</code></pre>
                 </div>
-                <div class="tab-content p-4 bg-white rounded-lg shadow" id="research" role="tabpanel" aria-labelledby="research-tab">
-                    <h4 class="text-2xl font-semibold mb-4">Exploring Unknown Topics (with Anti-Hallucination Measures)</h4>
-                    <p class="text-sm text-slate-600 mb-3">Get up to speed on niche topics reliably.</p>
-                    <pre><code><strong class="text-green-600">(R)</strong> You are a methodical research analyst...
-<strong class="text-blue-600">(C)</strong> I need to quickly understand 'The UK market for cultivated meat'.
-<strong class="text-indigo-600">(A)</strong> Create a research plan. IMPORTANT: Do NOT provide direct facts...
-<strong class="text-purple-600">(F)</strong> Output must provide: 1. Key Research Questions, 2. Effective Search Queries, 3. Reliable Source Checklist.</code></pre>
-                </div>
                 <div class="tab-content p-4 bg-white rounded-lg shadow" id="tech-help" role="tabpanel" aria-labelledby="tech-help-tab">
-                    <h4 class="text-2xl font-semibold mb-4">Instant Software & Tech Help</h4>
-                    <div class="grid md:grid-cols-2 gap-6">
+                    <h4 class="text-2xl font-semibold mb-4">Tech & Software Help</h4>
+                    <div class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                        <p class="font-semibold">The Situation:</p>
+                        <p class="text-slate-700">You're struggling with a function in a software tool like Excel or Word. You either know what you want to achieve but not how, or you're unsure what a specific feature does.</p>
+                    </div>
+                    <div class="mb-6 p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                        <p class="font-semibold">The Strategy:</p>
+                        <p class="text-slate-700">Use the AI as an infinitely patient tech support expert. Be explicit about your starting point and your desired outcome. Provide the context (what software, what data) and ask for the exact formula or a step-by-step guide.</p>
+                    </div>
+                    <div class="space-y-6">
                         <div>
                             <h5 class="font-bold text-lg mb-2">"I Know the Goal, Not the Method"</h5>
                             <pre><code><strong class="text-blue-600">(C)</strong> I am using Microsoft Excel. I have a list... Column A... Column B...
@@ -200,7 +237,8 @@
                 <div class="text-center mb-8">
                     <p class="text-slate-600">Mermaid is a free, open-source platform for creating diagrams and charts from text. You can learn more here:</p>
                     <a href="https://mermaid.js.org/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Mermaid.js Official Website</a> |
-                    <a href="https://www.mermaidchart.com/app/dashboard" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Mermaid Chart Dashboard</a>
+                    <a href="https://www.mermaidchart.com/app/dashboard" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Mermaid Chart Dashboard</a> |
+                    <a href="https://mermaid.js.org/intro/getting-started.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Getting Started (Many Examples)</a>
                 </div>
 
                 <div class="space-y-8">
@@ -226,7 +264,7 @@
                     <div>
                         <h4 class="font-semibold text-lg p-2 bg-slate-100 rounded-t-lg border-b">Step 2 & 3: Identify Error & Provide a "Golden Example"</h4>
                         <div class="p-4 bg-white rounded-b-lg border border-t-0">
-                            <p class="text-slate-600 mb-3">After seeing the code fails, you provide a working example as "ground truth." Find official examples <a href="https://docs.mermaidchart.com/mermaid/intro" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">here</a>.</p>
+                            <p class="text-slate-600 mb-3">After seeing the code fails, you provide a working example as "ground truth." Find many official examples <a href="https://mermaid.js.org/intro/getting-started.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">here</a>.</p>
                             <p class="font-mono text-sm mb-2"><strong>Corrective Prompt:</strong> Here is a working example of a valid Mermaid mind map. Please acknowledge that you have seen it.</p>
                             <pre><code>mindmap
   root((mindmap))
